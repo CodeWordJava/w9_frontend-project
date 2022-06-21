@@ -9,9 +9,9 @@ html, body {
 }
 
 body {
-    background: linear-gradient(-45deg, #295166, #283d4f, #0f2d3d, #01151F);
+    background: linear-gradient(-45deg, #3f5a94, #345f76, #0b0c4c, #01151F);
     background-size: 400% 400%;
-    animation: gradient 100s ease infinite;
+    animation: gradient 50s ease infinite;
 }
 
 @keyframes gradient {
