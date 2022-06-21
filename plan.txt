@@ -3,8 +3,7 @@ Component plan:
 App:
     -npm i my-react-App
     - delete defualt react stuff
-    - export defulat App
-    - more app.listening to server.js (to allow testing of app)
+    - 
     - testing - 
         - test components:
             - input-box
@@ -30,11 +29,11 @@ App:
     - useState?
   
   drop down filter by topic:
-    - linked to the GET by Topic 
+    - linked to the GET by Topic  - linked to the fetch request
     -
     -
   display-section:
-    - display data
+    - display data - fetch request
     - icon
     - how to display everything
     - how to not display everything
