@@ -99,7 +99,7 @@ const rows = [
   createData('Marshmallow', 318, 0),
   createData('Nougat', 360, 19.0),
   createData('Oreo', 437, 18.0),
-].sort((a, b) => (a.calories < b.calories ? -1 : 1));
+].sort((a, b) => (a.calories < b.calories ? 1 : -1));
   
 export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
