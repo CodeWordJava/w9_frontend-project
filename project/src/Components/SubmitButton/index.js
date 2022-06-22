@@ -1,9 +1,12 @@
 import React from "react";
 
-function SubmitButton() {
-    return (
-        <button id = "button">Submit</button>
-    )
-}
+// function SubmitButton() {
+//     return (
+//         <button id = "button">Submit</button>
+//     )
+// }
 
-export default SubmitButton;
+// export default SubmitButton;
+
+
+//there's a submit button in form 
