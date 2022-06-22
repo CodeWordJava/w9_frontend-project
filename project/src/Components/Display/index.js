@@ -16,6 +16,10 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
+import { TableHead } from "@mui/material";
+import { DropdownMenu } from "rsuite/esm/Picker";
+import DropDown from "../DropDown";
+
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -93,14 +97,18 @@ TablePaginationActions.propTypes = {
 
 export default function CustomPaginationActionsTable() {
   //sample fetch request
-  const [rows, setDate] = useState([]);
+  const [rows, setRows] = useState([]);
+
+// rows here is setting the tables data its the state used from the API response 
+
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`http://numbersapi.com/random/year?json`);
-      const data = await response.json();
+      const response = await fetch(`http://localhost:9000/everything`);
+      const {data} = await response.json();
 
-      setDate([...rows, data]);
+      setRows([...rows, [{...data}]]);
+      console.log(rows)
     }
     fetchData();
   }, []);
@@ -122,24 +130,35 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
+  
+  //This is where the fetch response will be sent and renddered 
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableBody>
+        {/* <DropDown></DropDown> */}
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
+            
             <TableRow key={row.text}>
               <TableCell component="th" scope="row">
-                {row.text}
+              {row[0][0].link}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" >
+              {row[0][0].username}
+                {/* {row.type} */}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.year}
+              {row[0][0].topic}
+                {/* {row.number} */}
+              </TableCell><TableCell style={{ width: 160 }} align="right">
+              1
+                {/* {row[0][0].votecount} */}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                {row.type}
-              </TableCell>
+              
             </TableRow>
           ))}
 
@@ -153,6 +172,7 @@ export default function CustomPaginationActionsTable() {
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+
               colSpan={3}
               count={rows.length}
               rowsPerPage={rowsPerPage}

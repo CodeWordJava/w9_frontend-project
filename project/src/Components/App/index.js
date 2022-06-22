@@ -5,7 +5,7 @@ import SubmitButton from "../SubmitButton";
 import DropDown from "../DropDown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../NavBar/index.js"
-import TablePaginationActions from "../Display/index.js"
+import CustomPaginationActionsTable from "../Display/index.js"
 
 function App() {
   return (
@@ -18,11 +18,10 @@ function App() {
   </div> 
 </div>
 <div id="tableDiv">
-<TablePaginationActions></TablePaginationActions>
+<CustomPaginationActionsTable></CustomPaginationActionsTable>
 </div>
 <Input></Input>
 <SubmitButton></SubmitButton>
-<DropDown></DropDown>
 </>
   );
 }
