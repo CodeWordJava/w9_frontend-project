@@ -35,7 +35,7 @@ function Input({data}) {
         fetchData();
 
     // empty dependency array
-    }, []);
+    }, [Input]);
 
     return (
         <form onSubmit={handleSubmit}>

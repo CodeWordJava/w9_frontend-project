@@ -16,9 +16,6 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
-import { TableHead } from "@mui/material";
-import { DropdownMenu } from "rsuite/esm/Picker";
-import DropDown from "../DropDown";
 
 
 function TablePaginationActions(props) {
@@ -98,7 +95,8 @@ TablePaginationActions.propTypes = {
 export default function CustomPaginationActionsTable() {
   //sample fetch request
   const [rows, setRows] = useState([]);
-
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 // rows here is setting the tables data its the state used from the API response 
 
 
@@ -107,15 +105,14 @@ export default function CustomPaginationActionsTable() {
       const response = await fetch(`http://localhost:9000/everything`);
       const {data} = await response.json();
 
-      setRows([...rows, [{...data}]]);
-      console.log(rows)
+      setRows([...rows, ...data]);
+      // console.log(data)
     }
     fetchData();
-  }, []);
+  }, []); 
 
   console.log(rows); //logs data correctly, fetch works
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -142,21 +139,18 @@ export default function CustomPaginationActionsTable() {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            
+
             <TableRow key={row.text}>
               <TableCell component="th" scope="row">
-              {row[0][0].link}
+                <a href={row.link}>{row.link}</a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" >
-              {row[0][0].username}
-                {/* {row.type} */}
+                {row.username}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-              {row[0][0].topic}
-                {/* {row.number} */}
+                {row.topic}
               </TableCell><TableCell style={{ width: 160 }} align="right">
-              1
-                {/* {row[0][0].votecount} */}
+                {row.votecount}
               </TableCell>
               
             </TableRow>
