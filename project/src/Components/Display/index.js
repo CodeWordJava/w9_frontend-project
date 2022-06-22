@@ -16,6 +16,7 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
+import DropDown from "../DropDown";
 
 
 function TablePaginationActions(props) {
@@ -97,6 +98,7 @@ export default function CustomPaginationActionsTable() {
   const [rows, setRows] = useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [topic, setTopic] = useState("");
 // rows here is setting the tables data its the state used from the API response 
 
 
@@ -127,20 +129,24 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
-  
+  const filteredRows = rows.filter((row) => row.topic.includes(topic))
   //This is where the fetch response will be sent and renddered 
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableBody>
-        {/* <DropDown></DropDown> */}
+        <DropDown setTopic = {setTopic}></DropDown>
+
+          {/* this is an if statement essentially this is  */}
+
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
+            ? filteredRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : filteredRows
           ).map((row) => (
 
             <TableRow key={row.text}>
+            
               <TableCell component="th" scope="row">
                 <a href={row.link}>{row.link}</a>
               </TableCell>

@@ -28,7 +28,7 @@ function Input() {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-            body: JSON.stringify({topic: topic, link: link, username: username})
+            body: JSON.stringify({topic: topic, link: link, userName: username})
 
         })
           const res = await post.json()
@@ -71,7 +71,7 @@ function Input() {
 
 
     // empty dependency array
-    }, []);
+    // }, []);
 
 console.log(topic);
 console.log(link);
