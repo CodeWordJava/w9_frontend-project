@@ -69,9 +69,14 @@ function Input() {
 
     //function to gather data
 
+
+    // empty dependency array
+    }, []);
+
 console.log(topic);
 console.log(link);
 console.log(username);
+
 
     return (
         <form onSubmit={handleSubmit}>

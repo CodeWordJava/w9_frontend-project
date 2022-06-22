@@ -1,4 +1,4 @@
-import { test, expect, jest } from "@jest/globals";
+import { test, expect } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import SubmitButton from "./index.js"
 
