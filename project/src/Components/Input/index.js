@@ -5,8 +5,15 @@ import { useState, useEffect } from "react";
 function Input({data}) {
 
     const [input, setInput] = useState([]);
-
-  //handles form submit
+    // use input inside the handleSubmit
+    // handleSubmit needs to grab input-text from "link, Topic, username"
+    // event.target.value
+    // then setInput to the input-text grabs
+    // the state of input is then added to the POST request body
+    // useEffect needs to listen to the input state (and not on load)
+    // 
+    
+    //handles form submit
         function handleSubmit(e) {
             e.preventDefault();
             console.log("submitted");
@@ -20,7 +27,7 @@ function Input({data}) {
             body: JSON.stringify({ title: '' })
         };
         async function fetchData() {
-            const response = await fetch('', requestOptions); //api link goes here
+            const response = await fetch('http://localhost:9000/create', requestOptions); //api link goes here
             const data = await response.json();
 
             setInput([...input, data])
