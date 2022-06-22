@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import Input from "../Input";
-import SubmitButton from "../SubmitButton";
+// import SubmitButton from "../SubmitButton";
 import DropDown from "../DropDown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../NavBar/index.js"
@@ -21,7 +21,7 @@ function App() {
 <TablePaginationActions></TablePaginationActions>
 </div>
 <Input></Input>
-<SubmitButton></SubmitButton>
+{/* <SubmitButton></SubmitButton> */}
 <DropDown></DropDown>
 </>
   );
