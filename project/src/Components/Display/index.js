@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -17,6 +18,21 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 
 function TablePaginationActions(props) {
+  //sample fetch request 
+  const [date, setDate] = useState([]);
+  async function fetchData() {
+    const response = await fetch(`http://numbersapi.com/random/year?json`);
+    const data =  await response.json();
+
+    setDate([...date, data])
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+console.log(date) //logs data correctly, fetch works 
+
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
