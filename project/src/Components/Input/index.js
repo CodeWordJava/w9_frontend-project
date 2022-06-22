@@ -2,9 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 //UNTESTED: need the db to test 
-function Input({data}) {
+function Input() {
 
-    const [input, setInput] = useState([]);
+    // const [input, setInput] = useState([]);
+    const [topic, setTopic] = useState("");
+    const [link, setLink] = useState("");
+    const [username, setUsername] = useState("");
+
     // use input inside the handleSubmit
     // handleSubmit needs to grab input-text from "link, Topic, username"
     // event.target.value
@@ -14,36 +18,73 @@ function Input({data}) {
     // 
     
     //handles form submit
-        function handleSubmit(e) {
+
+        async function handleSubmit(e) {
             e.preventDefault();
             console.log("submitted");
-        }
-    useEffect(() => {
-
-        // POST request using fetch 
-        const requestOptions = {
+            const post = await fetch("http://localhost:9000/create", {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: '' })
-        };
-        async function fetchData() {
-            const response = await fetch('http://localhost:9000/create', requestOptions); //api link goes here
-            const data = await response.json();
+            headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            body: JSON.stringify({topic: topic, link: link, username: username})
 
-            setInput([...input, data])
-        }
-        fetchData();
+        })
+          const res = await post.json()
+            console.log(res)
+        };
+       
+    
+      function handleTopicChange(e) {
+        setTopic(e.target.value);
+      }
+      function handleLinkChange(e) {
+        setLink(e.target.value);
+      }
+    
+      function handleUsernameChange(e) {
+        setUsername(e.target.value);
+      }
+
+    // useEffect(() => {
+
+
+    //     // POST request using fetch 
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ title: '' })
+    //     };
+    //     async function fetchData() {
+    //         const response = await fetch('http://localhost:9000/create', requestOptions); //api link goes here
+    //         const data = await response.json(gatherData());
+
+    //         setInput([...input, data])
+    //     }
+    //     fetchData();
+
+    // // empty dependency array
+    // }, []);
+
+    //function to gather data
+
 
     // empty dependency array
-    }, [Input]);
+    }, []);
+
+console.log(topic);
+console.log(link);
+console.log(username);
+
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Topic"> 
+            <input type="text" placeholder="Topic" onChange={handleTopicChange}> 
             </input>
-            <input type="text" placeholder="Link"> 
+            <input type="text" placeholder="Link" onChange={handleLinkChange}> 
             </input>
-            <input type="text" placeholder="Username"> 
+            <input type="text" placeholder="Username" onChange={handleUsernameChange}> 
             </input>
             <input type="submit" value="Submit Link"></input>
         </form>
