@@ -1,38 +1,23 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableFooter from '@mui/material/TableFooter';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableFooter from "@mui/material/TableFooter";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import IconButton from "@mui/material/IconButton";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import LastPageIcon from "@mui/icons-material/LastPage";
 
 function TablePaginationActions(props) {
-  //sample fetch request 
-  const [date, setDate] = useState([]);
-  async function fetchData() {
-    const response = await fetch(`http://numbersapi.com/random/year?json`);
-    const data =  await response.json();
-
-    setDate([...date, data])
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-console.log(date) //logs data correctly, fetch works 
-
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -59,28 +44,36 @@ console.log(date) //logs data correctly, fetch works
         disabled={page === 0}
         aria-label="first page"
       >
-        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
+        {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
         disabled={page === 0}
         aria-label="previous page"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+        {theme.direction === "rtl" ? (
+          <KeyboardArrowRight />
+        ) : (
+          <KeyboardArrowLeft />
+        )}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="next page"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        {theme.direction === "rtl" ? (
+          <KeyboardArrowLeft />
+        ) : (
+          <KeyboardArrowRight />
+        )}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="last page"
       >
-        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
+        {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
     </Box>
   );
@@ -93,31 +86,26 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-//database  
+//database
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
-const hello = "hello"
-//This is where the database entrys will go
 
-const rows = [
-  createData(`${hello}`, "305", 3.7),
-  createData('Luke', 452, 25.0),
-  createData('Ali', 262, 16.0),
-  createData('Ivon', 159, 6.0),
-  createData('Mari', 356, 16.0),
-  createData('Chris', 408, 3.2),
-  createData('Katie', 237, 9.0),
-  createData('James', 375, 0.0),
-  createData('KitKat', 518, 26.0),
-  createData('Lollipop', 392, 0.2),
-  createData('Marshmallow', 318, 0),
-  createData('Nougat', 360, 19.0),
-  createData('Oreo', 437, 18.0),
-].sort((a, b) => (a.calories < b.calories ? 1 : -1));
-  
+// sort((a, b) => (a.calories < b.calories ? 1 : -1));
+
 export default function CustomPaginationActionsTable() {
+  //sample fetch request
+  const [rows, setDate] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(`http://numbersapi.com/random/year?json`);
+      const data = await response.json();
+
+      setDate([...rows, data]);
+    }
+    fetchData();
+  }, []);
+
+  console.log(rows); //logs data correctly, fetch works
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -142,15 +130,15 @@ export default function CustomPaginationActionsTable() {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <TableRow key={row.name}>
+            <TableRow key={row.text}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.text}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.calories}
+                {row.year}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.fat}
+                {row.type}
               </TableCell>
             </TableRow>
           ))}
@@ -164,14 +152,14 @@ export default function CustomPaginationActionsTable() {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
               colSpan={3}
               count={rows.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
                 inputProps: {
-                  'aria-label': 'rows per page',
+                  "aria-label": "rows per page",
                 },
                 native: true,
               }}
