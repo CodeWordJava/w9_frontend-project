@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 //UNTESTED: need the db to test 
 function Input() {
 
-    const [input, setInput] = useState([]);
+    // const [input, setInput] = useState([]);
     const [topic, setTopic] = useState("");
     const [link, setLink] = useState("");
     const [username, setUsername] = useState("");
@@ -18,9 +18,21 @@ function Input() {
     // 
     
     //handles form submit
-        function handleSubmit(e) {
+
+        async function handleSubmit(e) {
             e.preventDefault();
             console.log("submitted");
+            const post = await fetch("http://localhost:9000/create", {
+            method: 'POST',
+            headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            body: JSON.stringify({topic: topic, link: link, username: username})
+
+        })
+          const res = await post.json()
+            console.log(res)
         };
        
     
@@ -35,30 +47,27 @@ function Input() {
         setUsername(e.target.value);
       }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // POST request using fetch 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: '' })
-        };
-        async function fetchData() {
-            const response = await fetch('http://localhost:9000/create', requestOptions); //api link goes here
-            const data = await response.json(gatherData());
 
-            setInput([...input, data])
-        }
-        fetchData();
+    //     // POST request using fetch 
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ title: '' })
+    //     };
+    //     async function fetchData() {
+    //         const response = await fetch('http://localhost:9000/create', requestOptions); //api link goes here
+    //         const data = await response.json(gatherData());
 
-    // empty dependency array
-    }, []);
+    //         setInput([...input, data])
+    //     }
+    //     fetchData();
+
+    // // empty dependency array
+    // }, []);
 
     //function to gather data
-function gatherData(){
-    
-
-}
 
 console.log(topic);
 console.log(link);
