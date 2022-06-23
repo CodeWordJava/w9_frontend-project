@@ -18,8 +18,9 @@ function UpvoteButton({id}){
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-    body: JSON.stringify({id: `${id}`})
+    body: JSON.stringify({id: id})
   });
+  // { "id": 5}
   const res = await patch.json()
   console.log(res);
   };

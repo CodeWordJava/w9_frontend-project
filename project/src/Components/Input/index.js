@@ -73,9 +73,9 @@ function Input() {
     // empty dependency array
     // }, []);
 
-console.log(topic);
-console.log(link);
-console.log(username);
+// console.log(topic);
+// console.log(link);
+// console.log(username);
 
 
     return (

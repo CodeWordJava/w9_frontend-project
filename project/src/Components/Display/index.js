@@ -109,7 +109,7 @@ export default function CustomPaginationActionsTable() {
       const response = await fetch(`http://localhost:9000/everything`);
       const {data} = await response.json();
 
-      setRows([...rows, ...data]);
+      setRows([...rows, ...data].sort((a,b) => (a.votecount < b.votecount ? 1 : -1)))
       // console.log(data)
     }
     fetchData();
@@ -129,7 +129,7 @@ export default function CustomPaginationActionsTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
+  // sort((a, b) => (a.calories < b.calories ? 1 : -1));
   const filteredRows = rows.filter((row) => row.topic.includes(topic))
   //This is where the fetch response will be sent and renddered 
 
@@ -161,7 +161,11 @@ export default function CustomPaginationActionsTable() {
               </TableCell><TableCell id="testFont" style={{ width: 160 }} align="right"> 
                 {row.votecount} 
               </TableCell>
-              <UpvoteButton onClick={row.id}/>
+
+              <UpvoteButton id={row.id}/>
+              
+             
+
 
             </TableRow>
           ))}
