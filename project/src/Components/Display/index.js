@@ -138,7 +138,9 @@ export default function CustomPaginationActionsTable() {
         <TableBody>
         <DropDown setTopic = {setTopic}></DropDown>
 
-          {/* this is an if statement essentially this is  */}
+          {/* this is an if statement essentially this is making it so that */}
+          {/* the fitleredRows wont break the website using this "Ternary" operator */}
+          {/* this statement is saying 'if there are less than 0 then dont do X */}
 
           {(rowsPerPage > 0
             ? filteredRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

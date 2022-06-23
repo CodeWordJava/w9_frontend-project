@@ -86,7 +86,7 @@ console.log(username);
             </input>
             <input type="text" placeholder="Username" onChange={handleUsernameChange}> 
             </input>
-            <input type="submit" value="Submit Link"></input>
+            <input id="sumbutButton" type="submit" value="Submit Link"></input>
         </form>
     )
 }
