@@ -1,8 +1,5 @@
 import React from "react";
 
-
-export default function UpvoteButton(){
-
 function UpvoteButton({id}){
 /**
  * onclick need to add 1 or send the fetch PATCH request to server
