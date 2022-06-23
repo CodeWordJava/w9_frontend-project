@@ -9,7 +9,7 @@ function DropDown({setTopic}) {
           <option value="">filter by topic</option>
           <option value="Git">Git</option>
           <option value="react">React</option>
-          <option value="nodeJS">NodeJS</option>
+          <option value="NodeJS">NodeJS</option>
           <option value="JavaScript">JavaScript</option>
           <option value="CSS">CSS</option>
         </select>
