@@ -79,7 +79,8 @@ console.log(username);
 
 
     return (
-        <form onSubmit={handleSubmit}>
+      <div id="formDiv">
+        <form id="form" onSubmit={handleSubmit}>
             <input type="text" placeholder="Topic" onChange={handleTopicChange} required> 
             </input>
             <input type="text" placeholder="Link" onChange={handleLinkChange} required> 
@@ -88,6 +89,8 @@ console.log(username);
             </input>
             <input id="sumbutButton" type="submit" value="Submit Link"></input>
         </form>
+      </div>
+
     )
 }
 

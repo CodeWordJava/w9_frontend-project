@@ -1,6 +1,6 @@
 import React from "react";
 
-function UpvoteButton(){
+export default function UpvoteButton(){
 
   return (
     <section>

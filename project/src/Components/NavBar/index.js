@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
         SoC Resource Library
       </a>
@@ -27,7 +27,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
-              Links
+              Top
             </a>
           </li>
           <li className="nav-item dropdown">
