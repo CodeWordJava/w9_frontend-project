@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="#button">
+            <a className="nav-link" href="#sumbutButton">
               Submit <span className="sr-only"></span>
             </a>
           </li>

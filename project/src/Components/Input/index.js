@@ -28,7 +28,7 @@ function Input() {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-            body: JSON.stringify({topic: topic, link: link, username: username})
+            body: JSON.stringify({topic: topic, link: link, userName: username})
 
         })
           const res = await post.json()
@@ -69,9 +69,14 @@ function Input() {
 
     //function to gather data
 
+
+    // empty dependency array
+    // }, []);
+
 console.log(topic);
 console.log(link);
 console.log(username);
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -81,7 +86,7 @@ console.log(username);
             </input>
             <input type="text" placeholder="Username" onChange={handleUsernameChange} required> 
             </input>
-            <input type="submit" value="Submit Link"></input>
+            <input id="sumbutButton" type="submit" value="Submit Link"></input>
         </form>
     )
 }
