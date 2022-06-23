@@ -15,6 +15,16 @@ function App() {
   <div id="innerIdDiv">
   <p className="helloID"> SoC Resource Library</p>
   <img src="https://www.schoolofcode.co.uk/static/logo-51c754388b198e5bbb0d08a971ebbfa2.png"></img>
+  <div id="innerIntro">
+      "Hello"
+      <p>
+        This is where the about us will go This is where the about us will go  This is where the about us will go 
+        This is where the about us will go  This is where the about us will go  This is where the about us will go 
+        This is where the about us will go  This is where the about us will go  This is where the about us will go 
+        This is where the about us will go  This is where the about us will go  This is where the about us will go 
+        This is where the about us will go 
+      </p>
+  </div>
   </div> 
 </div>
 <div id="tableDiv">
