@@ -7,4 +7,6 @@ function UpvoteButton(){
       <button>+</button>
     </section>
   )
-}
+};
+
+export default UpvoteButton;
