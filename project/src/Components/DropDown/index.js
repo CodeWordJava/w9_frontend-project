@@ -5,7 +5,7 @@ import React from "react";
 function DropDown({setTopic}) {
     return (
         <div>
-        <select onChange = {e => setTopic(e.target.value)}>
+        <select id="dropDown" onChange = {e => setTopic(e.target.value)}>
           <option value="">filter by topic</option>
           <option value="react">React</option>
           <option value="nodeJS">NodeJS</option>

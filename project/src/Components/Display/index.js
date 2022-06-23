@@ -20,6 +20,7 @@ import DropDown from "../DropDown";
 import UpvoteButton from "../UpvoteButton";
 
 
+
 function TablePaginationActions(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
@@ -98,7 +99,7 @@ export default function CustomPaginationActionsTable() {
   //sample fetch request
   const [rows, setRows] = useState([]);
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [topic, setTopic] = useState("");
 // rows here is setting the tables data its the state used from the API response 
 
@@ -124,7 +125,6 @@ export default function CustomPaginationActionsTable() {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
@@ -135,7 +135,7 @@ export default function CustomPaginationActionsTable() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
+      <Table id="tableId" sx={{ minWidth: 500,}} aria-label="custom pagination table">
         <TableBody>
         <DropDown setTopic = {setTopic}></DropDown>
 
@@ -149,20 +149,20 @@ export default function CustomPaginationActionsTable() {
           ).map((row) => (
 
             <TableRow key={row.text}>
-            
-              <TableCell component="th" scope="row">
+           
+              <TableCell id="testFont" component="th" scope="row" >
                 <a href={row.link}>{row.link}</a>
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" >
+              <TableCell id="testFont" style={{ width: 250 }} align="right" >
                 {row.username}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
+              <TableCell id="testFont" style={{ width: 160 }} align="right">
                 {row.topic}
-              </TableCell><TableCell style={{ width: 160 }} align="right">
-                {row.votecount}
+              </TableCell><TableCell id="testFont" style={{ width: 160 }} align="right"> 
+                {row.votecount} 
               </TableCell>
               <UpvoteButton onClick={row.id}/>
-              
+
             </TableRow>
           ))}
 

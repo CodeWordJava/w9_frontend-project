@@ -2,43 +2,80 @@
   text-align: center;
 }
 
-.navbar navbar-expand-lg navbar-light bg-light
+.navbar
 
 html, body {
   width: 100%;
   height:100%;
 }
 
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    
+}
+
+#tableId{
+    background-color: #ffffff;
+    
+}
+
+#testFont{
+    font-size: large;
+    color: red
+}
+
+#formDiv{
+    background: #93abd4;
+    padding: 15px;
+    margin-top: 35px;
+    margin-left: 39%;
+    margin-right: 39%;
+    margin-bottom: 5%;
+    border-radius: 10px;
+}
 
 #tableDiv{
-    background: #cac6c1;
+    background: #93abd4;
     padding: 15px;
     margin: 35px;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 10px;
 }
 
 
 #innerIdDiv{
-    background: #ffffff;
+    background: #7e8db8;
     padding: 15px;
     margin: 5px;
     border-radius: 10px;
 }
 
 #introDiv{
-    background: #cac6c1;
-    padding: 5px;
+    background: #93abd4;
+    padding: 10px;
     margin-top: 35px;
     margin-bottom: 35px;
-    margin-left: 300px;
-    margin-right:300px;
+    margin-left: 20%;
+    margin-right:20% ;
     border-radius: 10px;
     text-align: center;
     font-size: 64px;
 }
+#innerIntro{
+    background: #c1c6ca;
+    padding: 10px;
+    margin: 35px;
+    border-radius: 10px;
+    font-size: 30px;
+}
 
 body {
-    background: linear-gradient(-45deg, #3f5a94, #345f76, #0b0c4c, #01151F);
+    background: linear-gradient(-45deg, #3F5A94, #40C5B3, #0B0C4C, #01151F);
     background-size: 400% 400%;
     animation: gradient 50s ease infinite;
 }
