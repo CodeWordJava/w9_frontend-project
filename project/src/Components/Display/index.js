@@ -17,7 +17,8 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import DropDown from "../DropDown";
-import UpvoteButton from "../UpvoteButton"
+import UpvoteButton from "../UpvoteButton";
+
 
 
 function TablePaginationActions(props) {
@@ -160,7 +161,8 @@ export default function CustomPaginationActionsTable() {
               </TableCell><TableCell id="testFont" style={{ width: 160 }} align="right"> 
                 {row.votecount} 
               </TableCell>
-              <UpvoteButton/>
+              <UpvoteButton onClick={row.id}/>
+
             </TableRow>
           ))}
 
