@@ -161,7 +161,7 @@ export default function CustomPaginationActionsTable() {
               </TableCell><TableCell style={{ width: 160 }} align="right">
                 {row.votecount}
               </TableCell>
-              <UpvoteButton onClick={row.id}/>
+              <UpvoteButton id={row.id}/>
               
             </TableRow>
           ))}
