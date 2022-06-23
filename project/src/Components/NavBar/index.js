@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
-        SoC Resource Library
+        Student Resource Library
       </a>
       <button
         className="navbar-toggler"

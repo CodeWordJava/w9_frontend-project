@@ -25,7 +25,7 @@ input {
 
 #testFont{
     font-size: large;
-    color: red
+    color: rgb(4, 4, 4)
 }
 
 #formDiv{
@@ -49,7 +49,7 @@ input {
 
 
 #innerIdDiv{
-    background: #7e8db8;
+    background: rgb(247, 235, 226);
     padding: 15px;
     margin: 5px;
     border-radius: 10px;
@@ -66,8 +66,10 @@ input {
     text-align: center;
     font-size: 64px;
 }
+
+/* #71b3d49d; */
 #innerIntro{
-    background: #c1c6ca;
+    background: #93abd496;
     padding: 10px;
     margin: 35px;
     border-radius: 10px;

@@ -13,7 +13,7 @@ function App() {
 <Navbar></Navbar>
 <div id="introDiv">
   <div id="innerIdDiv">
-  <p className="helloID"> SoC Resource Library</p>
+  <p className="helloID">Student Resource Library</p>
   <img src="https://www.schoolofcode.co.uk/static/logo-51c754388b198e5bbb0d08a971ebbfa2.png"></img>
   <div id="innerIntro">
       "Hello"
