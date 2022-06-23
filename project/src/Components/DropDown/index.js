@@ -7,6 +7,7 @@ function DropDown({setTopic}) {
         <div>
         <select id="dropDown" onChange = {e => setTopic(e.target.value)}>
           <option value="">filter by topic</option>
+          <option value="Git">Git</option>
           <option value="react">React</option>
           <option value="nodeJS">NodeJS</option>
           <option value="JavaScript">JavaScript</option>
