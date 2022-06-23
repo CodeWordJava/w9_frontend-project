@@ -75,11 +75,11 @@ console.log(username);
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Topic" onChange={handleTopicChange}> 
+            <input type="text" placeholder="Topic" onChange={handleTopicChange} required> 
             </input>
-            <input type="text" placeholder="Link" onChange={handleLinkChange}> 
+            <input type="text" placeholder="Link" onChange={handleLinkChange} required> 
             </input>
-            <input type="text" placeholder="Username" onChange={handleUsernameChange}> 
+            <input type="text" placeholder="Username" onChange={handleUsernameChange} required> 
             </input>
             <input type="submit" value="Submit Link"></input>
         </form>
