@@ -26,13 +26,18 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Top
+            <a className="nav-link" href="https://app.slack.com/client/T039PHS2UKU/C03CF1NQWHG" target="popup">
+            #Tech-Links (Slack)
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="https://app.slack.com/client/T039PHS2UKU/C03CF1NQWHG" target="popup">
-            #Tech-Links (Slack)
+            <a className="nav-link" href="#">
+            Report Broken Links
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              Top
             </a>
           </li>
         </ul>

@@ -1,24 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-//UNTESTED: need the db to test 
+// This is our post fucntion that has input boxes for Topic Link and Username, and sends them to the API
 function Input() {
-
-    // const [input, setInput] = useState([]);
     const [topic, setTopic] = useState("");
     const [link, setLink] = useState("");
     const [username, setUsername] = useState("");
 
-    // use input inside the handleSubmit
-    // handleSubmit needs to grab input-text from "link, Topic, username"
-    // event.target.value
-    // then setInput to the input-text grabs
-    // the state of input is then added to the POST request body
-    // useEffect needs to listen to the input state (and not on load)
-    // 
-    
-    //handles form submit
-
+//post request: handles form submits
         async function handleSubmit(e) {
             e.preventDefault();
             console.log("submitted");
@@ -46,37 +35,6 @@ function Input() {
       function handleUsernameChange(e) {
         setUsername(e.target.value);
       }
-
-    // useEffect(() => {
-
-
-    //     // POST request using fetch 
-    //     const requestOptions = {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ title: '' })
-    //     };
-    //     async function fetchData() {
-    //         const response = await fetch('http://localhost:9000/create', requestOptions); //api link goes here
-    //         const data = await response.json(gatherData());
-
-    //         setInput([...input, data])
-    //     }
-    //     fetchData();
-
-    // // empty dependency array
-    // }, []);
-
-    //function to gather data
-
-
-    // empty dependency array
-    // }, []);
-
-// console.log(topic);
-// console.log(link);
-// console.log(username);
-
 
     return (
       <div id="formDiv">

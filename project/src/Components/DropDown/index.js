@@ -10,6 +10,7 @@ function DropDown({setTopic}) {
           <option value="Git">Git</option>
           <option value="react">React</option>
           <option value="NodeJS">NodeJS</option>
+          <option value="SQL">SQL</option>
           <option value="JavaScript">JavaScript</option>
           <option value="CSS">CSS</option>
         </select>
