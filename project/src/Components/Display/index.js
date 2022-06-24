@@ -19,8 +19,6 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import DropDown from "../DropDown";
 import UpvoteButton from "../UpvoteButton";
 
-
-
 function TablePaginationActions(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
@@ -90,33 +88,25 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-//database
-
-
-// sort((a, b) => (a.calories < b.calories ? 1 : -1));
 
 export default function CustomPaginationActionsTable() {
-  //sample fetch request
   const [rows, setRows] = useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [topic, setTopic] = useState("");
-// rows here is setting the tables data its the state used from the API response 
-
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`http://localhost:9000/everything`);
-      const {data} = await response.json();
+      const { data } = await response.json();
 
-      setRows([...rows, ...data].sort((a,b) => (a.votecount < b.votecount ? 1 : -1)))
-      // console.log(data)
+      setRows(
+        [...rows, ...data].sort((a, b) => (a.votecount < b.votecount ? 1 : -1))
+        //this is fetching our data, then sorting it before its sliced in the render
+      );
     }
     fetchData();
-  }, []); 
-
-  console.log(rows); //logs data correctly, fetch works
-
+  }, []);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -129,44 +119,49 @@ export default function CustomPaginationActionsTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  // sort((a, b) => (a.calories < b.calories ? 1 : -1));
-  const filteredRows = rows.filter((row) => row.topic.includes(topic))
-  //This is where the fetch response will be sent and renddered 
+
+  const filteredRows = rows.filter((row) => row.topic.includes(topic));
+  //This is where the fetch response will be sent and renddered
 
   return (
     <TableContainer component={Paper}>
-      <Table id="tableId" sx={{ minWidth: 500,}} aria-label="custom pagination table">
+      <Table
+        id="tableId"
+        sx={{ minWidth: 500 }}
+        aria-label="custom pagination table"
+      >
         <TableBody>
-        <DropDown setTopic = {setTopic}></DropDown>
+          <DropDown setTopic={setTopic}></DropDown>
 
           {/* this is an if statement essentially this is making it so that */}
           {/* the fitleredRows wont break the website using this "Ternary" operator */}
           {/* this statement is saying 'if there are less than 0 then dont do X */}
 
+          {/* This is slicing our fetch into the first X results */}
+
           {(rowsPerPage > 0
-            ? filteredRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            ? filteredRows.slice(
+                page * rowsPerPage,
+                page * rowsPerPage + rowsPerPage
+              )
             : filteredRows
           ).map((row) => (
-
+            //This is where the API data was being fed in to be rendererd using dot notation
             <TableRow key={row.text}>
-           
-              <TableCell id="testFont" component="th" scope="row" >
+              <TableCell id="testFont" component="th" scope="row">
                 <a href={row.link}>{row.link}</a>
               </TableCell>
-              <TableCell id="testFont" style={{ width: 250 }} align="right" >
+              <TableCell id="testFont" style={{ width: 250 }} align="right">
                 {row.username}
               </TableCell>
               <TableCell id="testFont" style={{ width: 160 }} align="right">
                 {row.topic}
-              </TableCell><TableCell id="testFont" style={{ width: 160 }} align="right"> 
-                {row.votecount} 
+              </TableCell>
+              <TableCell id="testFont" style={{ width: 160 }} align="right">
+                {row.votecount}
               </TableCell>
 
-              <UpvoteButton id={row.id}/>
-              
-             
-
-
+              <UpvoteButton id={row.id} />
             </TableRow>
           ))}
 
@@ -180,7 +175,6 @@ export default function CustomPaginationActionsTable() {
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-
               colSpan={3}
               count={rows.length}
               rowsPerPage={rowsPerPage}
