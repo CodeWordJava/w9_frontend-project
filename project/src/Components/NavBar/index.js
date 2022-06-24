@@ -30,7 +30,10 @@ const Navbar = () => {
               Top
             </a>
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item">
+            <a className="nav-link" href="https://app.slack.com/client/T039PHS2UKU/C03CF1NQWHG" target="popup">
+            #Tech-Links (Slack)
+            </a>
           </li>
         </ul>
       </div>
