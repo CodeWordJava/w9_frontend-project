@@ -45,12 +45,14 @@ function Input() {
           required
         ></input>
         <input
+          id="linkInput"
           type="text"
           placeholder="Link"
           onChange={handleLinkChange}
           required
         ></input>
         <input
+          id="usernameInput"
           type="text"
           placeholder="Username"
           onChange={handleUsernameChange}
