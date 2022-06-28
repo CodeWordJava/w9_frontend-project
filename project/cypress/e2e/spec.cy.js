@@ -8,5 +8,15 @@ describe('Input Form', () => {
     cy.get('#linkInput')
       .type('React Test')
       .should('have.value', 'React Test')
+
+    cy.get("#usernameInput")
+      .type("my username")
+      .should("have.value", "my username")
+
+    cy.get("#submitButton")
+      .click()
+    
+    cy.get("#dropDown")
+      .contains("Git")
     })
 })
