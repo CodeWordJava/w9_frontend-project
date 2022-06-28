@@ -38,24 +38,27 @@ function Input() {
     <div id="formDiv">
       <form id="form" onSubmit={handleSubmit}>
         <input
+          id="topicInput"
           type="text"
           placeholder="Topic"
           onChange={handleTopicChange}
           required
         ></input>
         <input
+          id="linkInput"
           type="text"
           placeholder="Link"
           onChange={handleLinkChange}
           required
         ></input>
         <input
+          id="usernameInput"
           type="text"
           placeholder="Username"
           onChange={handleUsernameChange}
           required
         ></input>
-        <input id="sumbutButton" type="submit" value="Submit Link"></input>
+        <input id="submitButton" type="submit" value="Submit Link"></input>
       </form>
     </div>
   );
