@@ -38,6 +38,7 @@ function Input() {
     <div id="formDiv">
       <form id="form" onSubmit={handleSubmit}>
         <input
+          id="topicInput"
           type="text"
           placeholder="Topic"
           onChange={handleTopicChange}
@@ -55,7 +56,7 @@ function Input() {
           onChange={handleUsernameChange}
           required
         ></input>
-        <input id="sumbutButton" type="submit" value="Submit Link"></input>
+        <input id="submitButton" type="submit" value="Submit Link"></input>
       </form>
     </div>
   );
