@@ -16,7 +16,7 @@ function UpvoteButton({ id }) {
 
   return (
     <section>
-      <button onClick={handleClick}>+</button>
+      <button id = "upvoteButton" onClick={handleClick}>+</button>
     </section>
   );
 }
