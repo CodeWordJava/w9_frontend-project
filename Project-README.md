@@ -21,5 +21,5 @@ Starts a server running at http://localhost:3000
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/SchoolOfCode/w9_frontend-project-team-is-undefined/blob/8bbec227a69680af80cbe8bb00bcf163f61e68c6/screenshots/Screenshot1.JPG))
 
