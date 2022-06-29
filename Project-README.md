@@ -13,6 +13,11 @@ Built in just three days by a fully remote team, we managed our workflow using N
 ## Tech stack
 HTML5, CSS3, JavaScript, React, Express.js, Node.js, Material UI, Jest, React Testing Library, Supertest, Cypress, Figma. 
 
+## Working on the Project
+Move into the project directory as above.
+To run the project use npm Start
+Starts a server running at http://localhost:3000
+
 
 ## Screenshots
 
