@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     //the classname dictates which CSS folder is being accessed
-    <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <nav id="navBar" className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
         Student Resource Library
       </a>
@@ -24,12 +24,13 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="#sumbutButton">
+            <a id="submitButtonLink" className="nav-link" href="#submitButton">
               Submit <span className="sr-only"></span>
             </a>
           </li>
           <li className="nav-item">
             <a
+              id="slackButton"
               className="nav-link"
               href="https://app.slack.com/client/T039PHS2UKU/C03CF1NQWHG"
               target="popup"
@@ -43,7 +44,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a id="topButton" className="nav-link" href="#">
               Top
             </a>
           </li>

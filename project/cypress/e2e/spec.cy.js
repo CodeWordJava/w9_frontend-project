@@ -19,4 +19,27 @@ describe('Input Form', () => {
     cy.get("#dropDown")
       .contains("Git")
     })
+});
+
+describe('NavBar test', () => {
+it('testing all NavBar links', () => {
+  cy.visit('http://localhost:3000/');
+  cy.get('#navBar')
+    .get('#submitButtonLink')
+    .click()
+  cy.url().should('include', '/#submitButton')
+
+  cy.visit('http://localhost:3000/');
+  cy.get('#navBar')
+    .get('#slackButton')
+    .click()
+
+  cy.visit('http://localhost:3000/')
+  cy.get('#navBar')
+    .get('#topButton')
+    .click()
+  
 })
+}
+);
+
