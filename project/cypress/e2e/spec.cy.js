@@ -49,8 +49,6 @@ it('testing all NavBar links', () => {
 describe('Upvote Button Test', () => {
   it('increments by one', () => {
     cy.visit('http://localhost:3000/')
-    // cy.get('#upvoteButton')
-    // .click()
     cy.get('#voteCountId')
     .invoke('text')
     .then((i) => {
