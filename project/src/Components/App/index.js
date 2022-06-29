@@ -17,8 +17,8 @@ function App() {
           <img src="https://www.schoolofcode.co.uk/static/logo-51c754388b198e5bbb0d08a971ebbfa2.png" alt="School of Code Logo"></img>
           <div id="innerIntro">
             <p>
-              Welcome to the School of Code Student Resourse Library!
-              <br></br>
+              Welcome to the School of Code Student Resource Library!
+              <br/>
               Here you can submit tech links from past presentations, guest
               speakers, or just anything you think might help your fellow
               bootcampers! We ask that while you use this website that you take
