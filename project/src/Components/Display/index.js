@@ -157,7 +157,7 @@ export default function CustomPaginationActionsTable() {
               <TableCell id="testFont" style={{ width: 160 }} align="right">
                 {row.topic}
               </TableCell>
-              <TableCell id="testFont" style={{ width: 160 }} align="right">
+              <TableCell id="voteCountId" style={{ width: 160 }} align="right">
                 {row.votecount}
               </TableCell>
 
