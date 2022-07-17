@@ -106,9 +106,8 @@ export default function CustomPaginationActionsTable() {
       );
     }
     fetchData();
-  // eslint-disable-next-line
-  }, 
-  []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
