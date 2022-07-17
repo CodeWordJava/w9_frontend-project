@@ -11,7 +11,7 @@ function Input() {
   async function handleSubmit(e) {
     e.preventDefault();
     console.log("submitted");
-    const post = await fetch("http://localhost:9000/create", {
+    const post = await fetch("https://the-soc-tech-library.herokuapp.com/create", {
       method: "POST",
       headers: {
         Accept: "application/json",

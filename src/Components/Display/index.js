@@ -97,7 +97,7 @@ export default function CustomPaginationActionsTable() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`http://localhost:9000/everything`);
+      const response = await fetch(`https://the-soc-tech-library.herokuapp.com/everything`);
       const { data } = await response.json();
 
       setRows(
@@ -106,7 +106,10 @@ export default function CustomPaginationActionsTable() {
       );
     }
     fetchData();
-  }, []);
+  
+  }, 
+  //[]
+  );
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
