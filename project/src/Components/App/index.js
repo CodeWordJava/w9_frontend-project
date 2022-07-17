@@ -4,7 +4,7 @@ import Input from "../Input";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../NavBar/index.js";
 import CustomPaginationActionsTable from "../Display/index.js";
-
+import SoCLogo from "../../images/SoCLogo.png"
 //Rendering the App using our components
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <div id="introDiv">
         <div id="innerIdDiv">
           <p className="helloID">Student Resource Library</p>
-          <img src="https://www.schoolofcode.co.uk/static/logo-51c754388b198e5bbb0d08a971ebbfa2.png" alt="School of Code Logo"></img>
+          <img src={SoCLogo} alt="School of Code Logo"></img>
           <div id="innerIntro">
             <p>
               Welcome to the School of Code Student Resource Library!
