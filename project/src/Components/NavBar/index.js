@@ -4,9 +4,9 @@ const Navbar = () => {
   return (
     //the classname dictates which CSS folder is being accessed
     <nav id="navBar" className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">
+      <span className="navbar-brand" >
         Student Resource Library
-      </a>
+      </span>
       <button
         className="navbar-toggler"
         type="button"
@@ -39,15 +39,15 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="mailto:placeholder@placeholder.com">
               Report Broken Links
             </a>
           </li>
-          <li className="nav-item">
-            <a id="topButton" className="nav-link" href="#">
+          {/*<li className="nav-item">
+            <span id="topButton" className="nav-link" href="#">
               Top
-            </a>
-          </li>
+            </span>
+  </li>*/}
         </ul>
       </div>
     </nav>
